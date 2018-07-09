@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[light,condensed,math]{kurier}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+
+
+\usepackage{ntheorem}
+\theoremstyle{break}
+\newtheorem{formula}{Formel}[section]
+\newtheorem{ann}{Bemerkung}[section]
+\newtheorem{der}{Folgerung}[section]
+
+
+\title{Formelsammlung}
+\author{Adrian E. Lehmann}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+    \section{Grundlagen}
+    Gegeben Investment $I$
+    \begin{formula}[Steigung RIK]
+        $$m_{RIK} = -\frac{C_1(I)}{C_0(I)}$$
+    \end{formula}
+    \begin{der}[Geradengleichung]
+        $$C_1(I) = m_{RIK} \cdot (I_{max} - C_0(I))$$
+    \end{der}
+    \section{Portfoliotheorie}
+    \subsection{Markowitz}
+    Betrachte Aktie mit Kursen $S(t), t \in \mathbb{N}_0$ zur Zeit $t$ und mit Dividenden $D$
+    \begin{formula}[Rendite]
+       $$\tilde{r}=\frac{\tilde{S}(1)-S(0)+D}{S(0)}$$
+    \end{formula}
+    Sei $w = (w_1, \dots, w_n)$ PF aus Aktien $\{1, \dots, n\}$ mit erw. Renditen $\mu_i$ und Varianzen  $\sigma^{2}_i$
+    \begin{formula}[Erw. PF-Rendite]
+        $$\mu_w = \sum_{i=1}^{n}w_i\cdot\mu_i$$
+    \end{formula}
+    \begin{formula}[PF-Varianz] 
+        $$\sigma^{2}_w = \sum_{i=1}^{n}\sum_{j=1}^{n} w_i \cdot w_j \cdot Cov(\tilde{r}_i, \tilde{r}_j)$$
+        $$=  \sum_{i=1}^{n}\sum_{j=1}^{n} w_i \cdot w_j \cdot \rho_{ij} \cdot \sigma_i \cdot \sigma_j$$
+    \end{formula}
+    Sei $n = 2$
+    \begin{formula}
+        $$w_1 = 1 - w_2$$
+    \end{formula}
+    \begin{formula}[Erw.-Wert]
+        $$\mu_w = w_1 \cdot \mu_1 + w_2 \cdot \mu_2$$
+    \end{formula}
+    \begin{formula}[Varianz]
+        $$\sigma^{2}_w = w^{2}_1 \cdot \sigma^{2}_1 + w^{2}_2 \cdot \sigma^{2}_2 + 2 \cdot w_1 \cdot w_2 \cdot \sigma_1 \cdot \sigma_2 \cdot \rho_{12}$$
+        $$\Rightarrow \sigma^{2}_w = w^{2}_1 \cdot \sigma^{2}_1 + (1-w_1)^{2} \cdot \sigma^{2}_2 + 2 \cdot w_1 \cdot (1-w_1) \cdot \sigma_1 \cdot \sigma_2 \cdot \rho_{ij}$$
+    \end{formula}
+    \begin{formula}[GVMP]
+        $$\frac{\partial\sigma^{2}_w}{\partial{}w_1} = 2w_1 \cdot \sigma^{2}_1 - 2(1-w_1) \cdot \sigma^{2}_2 + 2 \cdot (1 - 2w_1) \cdot \sigma_1 \cdot \sigma_2 \cdot \rho_{12}$$
+        $$\Rightarrow w^{GVMP}_1 = \frac{\sigma^{2}_2 - \sigma_1 \cdot \sigma_2 \cdot \rho_{12}}{\sigma^{2}_1 + \sigma^{2}_2 - 2 \cdot \sigma_1  \cdot \sigma_2 \cdot \rho_{12}}$$
+    \end{formula}
+    \begin{formula}[Feldman / Reisman]
+        Sei $V$ die Varianz-Kovarianzmatrix
+        $$\mu_w = r + w^T\mu_x$$
+        $$\sigma^{2}_w = w^T \cdot V \cdot W$$ 
+        \textbf{Effiziente Portfolios:}
+        $$w_eff = V^{-1}\mu_x$$
+        \textbf{Effiziente Linie:}
+        $$\mu_w  = r + \frac{\mu_a - r}{\sigma_a} \cdot \mu_w$$
+    \end{formula}
+\end{document}
