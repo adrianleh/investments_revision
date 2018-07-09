@@ -8,7 +8,6 @@
 \usepackage{mathtools}
 \usepackage{etoolbox}
 
-
 \usepackage{ntheorem}
 \theoremstyle{break}
 \newtheorem{formula}{Formel}[section]
@@ -82,5 +81,39 @@
        $$\sigma^{2}_i = \sum_{k=1}^{L} ( \beta^{2}_{ik} \cdot \sigma^{2}_{I_k} ) + \sigma^{2}_{\epsilon_i}$$
     \end{formula}
     \section{CAPM}
-    
+    Sei $w$ WP und $M$ Markt bestehend aus $w^M_i, i \in \{1, \dots, N\}$\\
+    Es gilt: $\beta_i = \frac{cov(\tilde{r}_i, \tilde{r}_M)}{\sigma^{2}_M}$
+    \begin{formula}[KML]
+        $$\mu_w = r + \frac{\mu_M - r}{\sigma_M} \cdot \sigma_w$$
+    \end{formula}
+    \begin{formula}[WPML]
+        $$\mu_j = r + (\mu_M - r) \cdot \beta_i$$
+    \end{formula}
+    \begin{formula}[Risiko Marktportfolio]
+        $$\sigma^{2}_M = \sum_{i=1}^{N}w_i^M \cdot cov(\tilde{r}_i, \tilde{r}_M)$$
+    \end{formula}
+    \section{APT}
+    Seien $I_k, k \in \{1, \dots, K\}$ Faktoren
+    \begin{formula}[Eigenschaften]
+        $$\sum_{i=1}^{N} w_i = w^T \cdot 1_{N} = 0$$
+        $$\sum_{i=1}^{N} w_i \cdot \beta_{i,k} = w^T \cdot \beta_k = 0, \forall k \in \{1, \dots, K\}$$
+        $$\sum_{i=1}^{N} w^{2}_i \sigma^{2}_{\epsilon_i} \approx 0$$
+    \end{formula}
+    \begin{formula}[Linearität]
+        $$\exists \lambda_i, i \in \{0, \dots, K\}:  \mu_i = \lambda_0 + \sum_{k=1}^{K}\lambda_k \cdot \beta_{i,k}$$
+        Wobei $\lambda_0 = r$ \& $\lambda_k = \mu_{I_k} -r$
+    \end{formula}
+    \section{Performancemessung}
+    \subsection{Sharpe-Ratio}
+    \begin{formula}[Sharpe-Ratio]
+        $$s = \frac{\bar{\mu} - r}{\sigma}$$
+    \end{formula}
+    \subsection{Jensen's Alpha}
+    \begin{formula}[Jensen's Alpha]
+        $$\alpha = \bar{\mu} - r - (\mu_M - r)  \cdot \beta$$
+    \end{formula}
+    \subsection{Treynor-Maß}
+    \begin{formula}[Treynor-Maß]
+        $$z = \frac{\bar{\mu} - r}{\beta}$$
+    \end{formula}
 \end{document}
