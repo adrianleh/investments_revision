@@ -1,0 +1,77 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[light,condensed,math]{kurier}
+\usepackage[ngerman]{babel}
+\usepackage{ntheorem}
+\usepackage{graphicx}
+\usepackage{floatrow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\theoremstyle{break}
+
+\newcommand{\msd}{$\mu$-$\sigma$-Diagramm}
+
+\newtheorem{defi}{Definition}[section]
+\newtheorem{ann}{Bemerkung}[section]
+\newtheorem{der}{Folgerung}[section]
+\newtheorem{ex}{Beispiel}[section]
+\newtheorem{why}{Vorteile}[section]
+\newtheorem{whynot}{Nachteile}[section]
+
+
+\title{Portfoliotheorie nach H. M. Markowitz}
+\author{Adrian E. Lehmann}
+
+\begin{document}
+        \maketitle
+        \tableofcontents
+        \newpage
+
+
+\section{Grundidee}
+    Investoren entscheiden nicht nur basierend  Renditeaussichten, sondern auch basierend auf Risikominimierung
+\section{Portfolio}
+    \begin{defi}[Portfolio]
+        Ein Portfolio ist eine gewichtete Zusammenstellung von Wertpapieren. Dies ist als Vektor $w = (w_1, \dots, w_n)$ modellierbar, wobei $w_i$ das Gewicht des $i$-ten Wertpapier darstellt
+    \end{defi}
+    \begin{defi}[Leerverkaufsbeschränkung]
+        Sei $w = (w_1, \dots, w_n)$ PF, dann gilt unter LVK-Beschr: $w_i \geq 0 ~ ~ \forall i$
+    \end{defi}
+    \begin{defi}[\msd]
+        Ein \msd stellt die Verbindung zwischen Rendite und Risiko dar. Normalerweise wird dies durch eine Hyperbel dargestellt.
+    \end{defi}
+    \begin{defi}[Dominanz]
+        Seien WP1, WP2 Wertpapiere mit erw. Renditen $\mu_1$ und $\mu_2$ sowie Risiken $\sigma_1$ und $\sigma_2$\\
+        Dann gilt: \textbf{WP1 dominiert WP2 $\Longleftrightarrow ~ \mu_1 > \mu_2 \wedge \sigma_1 < \sigma_2$}\\
+        \emph{Aus WP1 dominiert WP2 folgt \textbf{NICHT}, dass WP2 im Portfolio nicht sinnvoll ist ($\rightarrow$ Korrelation)}
+    \end{defi}
+    \begin{defi}[GVMP]
+        Das GVMP ist das Portfolio $w$, wo $\sigma$ minimal. Dies ist der Scheitel der Hyperbel in einem \msd 
+    \end{defi}
+    \begin{defi}[Effiziente PFs]
+        Ein PF $w$ ist effizient $\Longleftrightarrow ~ \nexists$ PF $\tilde{w}: \tilde{w}$ dominiert $w$
+    \end{defi}
+    \begin{defi}[Optimales Portfolio]
+        Punkt im \msd in dem die Indifferenzkurve des Investors ein effizientes PF erreicht
+    \end{defi}
+    \begin{defi}[Erreichbare Portfolios]
+        Die erreichbaren Portfolios befinden sich in der Fläche, welche durch die Hyperbel im \msd begrenzt wird.
+        Die Portfolios auf der Hyperbel heißen auch ``Randportfolios''.
+    \end{defi}
+    \begin{der}
+        Jedes Randportfolio ist LK von von 2 weiteren Randportfolios:\\
+        $\forall$ RandPF $p ~ \exists$ RandPF $g, h ~ \exists \lambda_g, \lambda_h \in \mathbb{R}: p = \lambda_g g + \lambda_h h$
+    \end{der}
+\section{Risikolose Instrumente}
+    \begin{ann}[Risikoloses Instrument und risikobehaftetes Instrument]
+        Sei WP1 risikolos und WP2 risikobehaftet. Dann ist im \msd dies dargestellt als Gerade von WP1 zu WP2\\
+        Ohne LVK-Beschr. verlängert sich die Gerade hinter WP2 und spiegelt sich auf Höhe von $\mu_1$
+    \end{ann}
+    \begin{ann}[n risikobehaftete WPs und ein risikoloses]
+        Das Risikolose WP habe Rendite $r$
+        Zeichne \msd für risikobehaftete und setze Punkte $r_0 \coloneqq (r,0)$ an. Lege Tangente $t$ an Hyperbel, s.d. $t$ schneidet $r_0$ und Gradient ist maximal. 
+    \end{ann}
+\end{document}
