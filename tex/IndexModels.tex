@@ -1,0 +1,104 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[light,condensed,math]{kurier}
+\usepackage[ngerman]{babel}
+\usepackage{ntheorem}
+\usepackage{graphicx}
+\usepackage{floatrow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\theoremstyle{break}
+
+\newcommand{\msd}{$\mu$-$\sigma$-Diagramm}
+\newcommand{\mbd}{$\mu$-$\beta$-Diagramm}
+
+\newtheorem{defi}{Definition}[section]
+\newtheorem{ann}{Bemerkung}[section]
+\newtheorem{der}{Folgerung}[section]
+\newtheorem{ex}{Beispiel}[section]
+\newtheorem{why}{Vorteile}[section]
+\newtheorem{whynot}{Nachteile}[section]
+
+
+\title{Indexmodelle}
+\author{Adrian E. Lehmann}
+
+\begin{document}
+        \maketitle
+        \tableofcontents
+        \newpage
+        
+\section{Single-Index-Modell (Sharpe)}
+Idee: $\tilde{r}_j = \alpha_j + \beta_j \cdot \tilde{r}_I + \tilde{\epsilon}_j$\\
+wobei:\\
+$\alpha_j$ Überrendite zu Markt\\
+$\beta_j$ Empfänglichkeit für Marktschwankungen\\
+$\tilde{\epsilon}_j$ Zufälliger Störterm\\
+
+\begin{ann}[Grundannahmen]
+    Keine Systematische Verzerrungen der Störterme
+        $$E(\tilde{\epsilon}_j) = 0 ~ \forall j$$
+    Störterme nicht mit Marktrendite korreliert
+        $$cov(\tilde{\epsilon}_j, \tilde{r}_I) = 0 ~ \forall j$$
+    Störterme paarweise unkorelliert:
+         $$cov(\tilde{\epsilon}_j, \tilde{\epsilon}_k) = 0 ~ \forall j \neq k$$
+\end{ann}
+\begin{defi}[Defensive / Aggressive Aktien]
+    \begin{center}
+        Aktie $i$ defensiv $\Longleftrightarrow ~ \beta^{2}_i < 1 $\\
+        Aktie $i$ aggressiv $\Longleftrightarrow ~ \beta^{2}_i > 1 $
+    \end{center}
+\end{defi}
+\begin{ann}[Risiko]
+    2 Arten von Risiko:\\
+    Systematisches Risiko $\beta_j$ (\textbf{nicht diversifizierbar})\\
+    Residualrisiko (unsystematisches) $\alpha_j$ und $\tilde{\epsilon}_j$ \textbf{diversifizierbar} 
+\end{ann}
+\subsection{MultiIndex}
+Mehr Indices um Brancheneffekte zu zeigen und $\tilde{\epsilon}$-Korrelationen zu senken.
+
+\section{CAPM}
+
+Annahmen:
+\begin{itemize}
+    \item Investoren optimieren auf $\mu$-$\sigma$ Basis
+    \item Investoren haben homogene Erwartungen
+    \item Der Anlagehorizont aller Investoren ist gleich
+    \item Kapitalmärkte sind vollkommen und friktionslos
+    \item Es besteht risikolose Anlage- und Aufnahmemöglichkeit zum selben Zinssatz $r$ und in bel. Höhe
+    \item Märkte bestehen aus handelbaren WPs mit festem Angebot
+\end{itemize}
+
+Die Idee ist, dass jeder Investor selbst sich Aktien und risikoloses Instrument. Dies erzeugt ein \textbf{Gleichgewicht}: Der Markt ist geräumt und alle Investoren sind befriedigt. \textbf{$\Longrightarrow$ Jeder Investor hat gleiches Portfolio (genannt: ``Marktportfolio'')}
+
+\begin{defi}{Kaptialmarktlinie - KML}
+    Alle effiziente PFs liegen auf der KML (Gerade).\\
+    Das einzige eff. reine Aktienportfolio ist das Marktportfolio
+\end{defi}
+
+\begin{defi}{Marktpreis des Risikos}
+    $$\frac{\mu_M - r}{\sigma_M}$$
+\end{defi}
+
+\begin{der}
+    Aktive Handelsstrategie NICHT sinnvoll, sondern nur das Nachbilden des Marktportfolios    
+\end{der}
+
+\begin{ann}[Risiko]
+    Risiken können in 2 Klassen unterteilt werden:\\
+   \begin{enumerate}
+       \item Systematisches Risiko (nicht div.bar): Risikobeitrag zum Gesamtrisiko $cov(\tilde{r}_j, \tilde{r}_M)$
+       \item Unsystematisches Risiko (div.bar): Unternehmensbez. Risiko $\sigma^{2}_{\epsilon_j}$
+   \end{enumerate}    
+\end{ann}
+
+\begin{defi}[$\beta_j$]
+    $$\beta_j \coloneqq \frac{cov(\tilde{r}_j, \tilde{r}_M)}{\sigma^{2}_M}$$
+\end{defi}
+
+% TODO:  Slide 169/170
+
+\end{document}
