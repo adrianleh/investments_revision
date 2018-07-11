@@ -12,7 +12,8 @@
 \usepackage{amssymb}
 \theoremstyle{break}
 
-\newcommand{\msd}{$\mu$-$\sigma$-Diagramm}
+\newcommand{\ms}{$\mu$-$\sigma$}
+\newcommand{\msd}{\ms-Diagramm}
 \newcommand{\mbd}{$\mu$-$\beta$-Diagramm}
 
 \newtheorem{defi}{Definition}[section]
@@ -101,4 +102,30 @@ Die Idee ist, dass jeder Investor selbst sich Aktien und risikoloses Instrument.
 
 % TODO:  Slide 169/170
 
+\section{APT}
+
+Seien $I_k, k \in \{1, \dots, K\}$ Faktoren
+
+Prinzip: Keine \ms-Optimierung, sondern renditegenerierender Prozess mit
+$$\tilde{r}_i = \alpha_i + \sum_{k=1}^{K=0} (\beta_{i,k}\tilde{I}_k)+ \tilde{\epsilon}_i$$
+
+Unterstelle Markt mit Eigenschaften
+\begin{enumerate}
+   \item $\sum_{i=1}^{N} w_i = w^T \cdot 1_{N} = 0$
+   \item $\sum_{i=1}^{N} w_i \cdot \beta_{i,k} = w^T \cdot \beta_k = 0, \forall k \in \{1, \dots, K\}$
+   \item $\sum_{i=1}^{N} w^{2}_i \sigma^{2}_{\epsilon_i} \approx 0$
+\end{enumerate}
+\begin{der}[Linearität]
+    $$\exists \lambda_i, i \in \{0, \dots, K\}:  \mu_i = \lambda_0 + \sum_{k=1}^{K}\lambda_k \cdot \beta_{i,k}$$
+    Wobei $\lambda_0 = r$ \& $\lambda_k = \mu_{I_k} -r$ (Überschussrendite gegen PF, dass nur gegen $I_k$ sensitiv ist)
+\end{der}
+
+%TODO Slide 175
+
+\begin{ann}
+  APT gibt keine Hinweise über Anzahl und Interpretation der Faktoren
+\end{ann}
+\begin{ann}
+    APT muss nicht im Widerspruch zu CAPM stehen
+\end{ann}
 \end{document}
