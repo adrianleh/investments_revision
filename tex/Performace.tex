@@ -1,0 +1,66 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[light,condensed,math]{kurier}
+\usepackage[ngerman]{babel}
+\usepackage{ntheorem}
+\usepackage{graphicx}
+\usepackage{floatrow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\theoremstyle{break}
+
+\newcommand{\ms}{$\mu$-$\sigma$}
+\newcommand{\msd}{\ms-Diagramm}
+\newcommand{\mbd}{$\mu$-$\beta$-Diagramm}
+
+\newtheorem{defi}{Definition}[section]
+\newtheorem{ann}{Bemerkung}[section]
+\newtheorem{der}{Folgerung}[section]
+\newtheorem{ex}{Beispiel}[section]
+\newtheorem{why}{Vorteile}[section]
+\newtheorem{whynot}{Nachteile}[section]
+
+
+\title{Performancemessung}
+\author{Adrian E. Lehmann}
+
+\begin{document}
+        \maketitle
+        \tableofcontents
+        \newpage
+        
+\section{Grundlagen}
+    Problem: Erreichte Rendite könnte auf Grund von Glück, zu hoher Risiken oder auf Können beruhen. Wie kann man sicherstellen, dass es Können ist?
+    \textbf{Analysiere: Risikoadjungierte Renditen auf Basis großer Zeiträume.}\\
+
+2 Möglichkeiten:\\
+\begin{enumerate}
+    \item Vergl. PF mit \textbf{Benchmark-PF}, welches \textbf{ähnliches Risiko} hat
+    \item Vergl. mit \textbf{theoretischen Bench.-PFs.} di sich aus z.B. \textbf{CAPM oder APT ergeben} $\Rightarrow$ \hyperref[perf]{Maße}
+\end{enumerate}
+
+\section{Performance-Maße}
+\label{perf}
+    All folgenden Maße beruhen auf Idee, dass Kurse gemäß CAPM sich auf Basis von öffentlichen Informationen bilden und Fondsmanagers \textbf{Selectivity-Vermögen} gemessen werden kann
+\subsection{Sharpe-Ratio}
+    Das Sharpe Ratio stellt die Mittlere Überrendite in Relation zu dem eingegangen Gesamtrisiko:
+    $$s = \frac{\bar{\mu} - r}{\sigma}$$
+    \begin{der}
+        Sharpe-Ratio misst Steigung der Geraden die durch risikoloses Instrument und PF verlaufen im \msd \& vergleicht mit Steigung ``risikolos $\rightarrow$ Markt-PF''
+    \end{der}
+\subsection{Jensen's Alpha}
+    Idee: Vertikaler Abstand von erzielter mittlerer Rendite von der Gleichgewichts Rendite gemäß eigegangenem Risiko auf WPML ($\rightsquigarrow$ \mbd).
+    $$\alpha = \bar{\mu} - r - (\mu_M - r)  \cdot \beta$$ 
+    \textbf{Achtung:} Jensen's Alpha berücksichtigt NICHT, dass Risiko auch durch Mischung aus riskant und risikolos erz. werden kann
+\subsection{Treynor-Maß}
+    Das Treynor-Maß stellt die Mittlere Überrendite in Relation zu dem eingegangen systematischen Risiko:
+    $$z = \frac{\bar{\mu} - r}{\beta}$$
+    \begin{der}
+       Treynor-Maß misst Steigung der Geraden die durch risikoloses Instrument und PF verlaufen im \mbd \& vergleicht mit Steigung ``risikolos $\rightarrow$ Markt-PF''
+    \end{der}
+
+%TODO: Slide 188
+\end{document}
