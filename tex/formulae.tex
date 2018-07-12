@@ -14,6 +14,7 @@
 \newtheorem{ann}{Bemerkung}[section]
 \newtheorem{der}{Folgerung}[section]
 
+\newcommand{\st}{\sum_{t=1}^{T}}
 
 \title{Formelsammlung}
 \author{Adrian E. Lehmann}
@@ -116,5 +117,29 @@
     \subsection{Treynor-Maß}
     \begin{formula}[Treynor-Maß]
         $$z = \frac{\bar{\mu} - r}{\beta}$$
+    \end{formula}
+    \section{Renten}
+    \subsection{Zerobonds}
+    \begin{formula}[Diskontfaktor Zerobond]
+        $$b(0,T) = \frac{P(0)}{RZK}$$
+    \end{formula}
+    \begin{formula}[Kassazinssätze]
+        $$b(0,T) \cdot (1+y(0, T))^T = 1$$
+        $$\Leftrightarrow \sqrt[T]{\frac{1}{b(0,T)}} -1 = y(0,T)$$
+    \end{formula}
+    \subsection{Kuponanleihen}
+    \begin{formula}[Emissionspreis]
+        $$P(0) = \st(C \cdot (1+y(0,t))^{-t})  + RZK \cdot (1 + y(0,T))^{-T} = \st(C \cdot b(0,t)) + RZK \cdot b(0,T)$$
+    \end{formula}
+    \begin{formula}[Yield to maturity]
+        $$P(0) = \st(C \cdot (1 + y^{*})^{-t})  + RZK \cdot (1 + y^{*})^{-T}$$
+        $$\Rightarrow \st(C \cdot (1 + y^{*})^{-t})  + RZK \cdot (1 + y^{*})^{-T} = \st(C \cdot (1+y(0,t))^{-t})  + RZK \cdot (1 + y(0,T))^{-T}$$
+    \end{formula}
+    \begin{formula}[Termingeschäfte]
+        $$(1 + y(0,S))^S \cdot (1 + f(0,S,T))^{T-S} = (1 + y(0,T))^T$$
+        $$\Rightarrow f(0,S,T) = \sqrt[T-S]{\frac{(1 + y(0,T))^T}{(1 + y(0,S))^S}} - 1$$
+    \end{formula}
+    \begin{formula}[Swapsatz]
+        $$s(0,T) = \frac{1 - b(0,T)}{\sum_{t=1}^{T}b(0,t)}$$
     \end{formula}
 \end{document}
