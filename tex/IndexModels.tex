@@ -63,7 +63,7 @@ Mehr Indices um Brancheneffekte zu zeigen und $\tilde{\epsilon}$-Korrelationen z
 
 \section{CAPM}
 
-Annahmen:
+\textbf{Annahmen:}
 \begin{itemize}
     \item Investoren optimieren auf $\mu$-$\sigma$ Basis
     \item Investoren haben homogene Erwartungen
@@ -71,6 +71,36 @@ Annahmen:
     \item Kapitalmärkte sind vollkommen und friktionslos
     \item Es besteht risikolose Anlage- und Aufnahmemöglichkeit zum selben Zinssatz $r$ und in bel. Höhe
     \item Märkte bestehen aus handelbaren WPs mit festem Angebot
+\end{itemize}
+
+\textbf{Input:}
+\begin{itemize}
+    \item Erwartungswerte über zukünftige Kurse
+\end{itemize}
+
+\textbf{Output:}
+\begin{itemize}
+    \item Heutige Kurse passen sich bis zur Markträumung an
+\end{itemize}
+
+\textbf{Stärken CAPM:}
+\begin{itemize}
+    \item Relativ einfaches linears Gleichgewichtsmodeel
+    \item Plausible Annahmen
+    \item Robust gegenüber aufweichen der Annahmen:
+    \begin{itemize}
+        \item LVK Beschränkung ändert GGW Modell nicht
+        \item Risikoloses Instrument: Setze $\beta = 0$        
+    \end{itemize}
+\end{itemize}
+
+\textbf{Schwächen CAPM:}
+\begin{itemize}
+    \item Empirisch schwer zu testen (Rolls Kritik):
+    \begin{itemize}
+        \item Marktportfolio unmöglich zu erreichen
+        \item Lineare Risiko/Rendite Beziehung ist mathematische Tautologie
+    \end{itemize}
 \end{itemize}
 
 Die Idee ist, dass jeder Investor selbst sich Aktien und risikoloses Instrument. Dies erzeugt ein \textbf{Gleichgewicht}: Der Markt ist geräumt und alle Investoren sind befriedigt. \textbf{$\Longrightarrow$ Jeder Investor hat gleiches Portfolio (genannt: ``Marktportfolio'')}
@@ -100,8 +130,6 @@ Die Idee ist, dass jeder Investor selbst sich Aktien und risikoloses Instrument.
     $$\beta_j \coloneqq \frac{cov(\tilde{r}_j, \tilde{r}_M)}{\sigma^{2}_M}$$
 \end{defi}
 
-% TODO:  Slide 169/170
-
 \section{APT}
 
 Seien $I_k, k \in \{1, \dots, K\}$ Faktoren
@@ -111,21 +139,21 @@ $$\tilde{r}_i = \alpha_i + \sum_{k=1}^{K=0} (\beta_{i,k}\tilde{I}_k)+ \tilde{\ep
 
 Unterstelle Markt mit Eigenschaften
 \begin{enumerate}
-   \item $\sum_{i=1}^{N} w_i = w^T \cdot 1_{N} = 0$
-   \item $\sum_{i=1}^{N} w_i \cdot \beta_{i,k} = w^T \cdot \beta_k = 0, \forall k \in \{1, \dots, K\}$
-   \item $\sum_{i=1}^{N} w^{2}_i \sigma^{2}_{\epsilon_i} \approx 0$
+   \item $\sum_{i=1}^{N} w_i = w^T \cdot 1_{N} = 0$ - Kein Kaptialeinsatz
+   \item $\sum_{i=1}^{N} w_i \cdot \beta_{i,k} = w^T \cdot \beta_k = 0, \forall k \in \{1, \dots, K\}$ - Kein Faktorrisiko
+   \item $\sum_{i=1}^{N} w^{2}_i \sigma^{2}_{\epsilon_i} \approx 0$ - Wohl diversifiziert
 \end{enumerate}
+
 \begin{der}[Linearität]
     $$\exists \lambda_i, i \in \{0, \dots, K\}:  \mu_i = \lambda_0 + \sum_{k=1}^{K}\lambda_k \cdot \beta_{i,k}$$
     Wobei $\lambda_0 = r$ \& $\lambda_k = \mu_{I_k} -r$ (Überschussrendite gegen PF, dass nur gegen $I_k$ sensitiv ist)
 \end{der}
 
-%TODO Slide 175
-
 \begin{ann}
   APT gibt keine Hinweise über Anzahl und Interpretation der Faktoren
 \end{ann}
-\begin{ann}
-    APT muss nicht im Widerspruch zu CAPM stehen
+
+\begin{ann}[APT $\leftrightarrow$ CAPM]
+    \textbf{APT steht nicht im Widerspruch zu CAPM}
 \end{ann}
 \end{document}
